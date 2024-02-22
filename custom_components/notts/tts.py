@@ -5,19 +5,17 @@ import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.tts import CONF_LANG, PLATFORM_SCHEMA, Provider
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from urllib.parse import quote
 
 
 _LOGGER = logging.getLogger(__name__)
 
-SUPPORT_BEEP_OPS = ["1", "0"]
+SUPPORTED_LANGUAGES = ["1", "0"]
 
-DEFAULT_BEEP = "1"
+DEFAULT_LANG = "1"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
-        vol.Optional(CONF_LANG, default=DEFAULT_BEEP): vol.In(SUPPORT_BEEP_OPS),
+        vol.Optional(CONF_LANG, default=DEFAULT_LANG): vol.In(SUPPORTED_LANGUAGES),
     }
 )
 
@@ -30,21 +28,21 @@ def get_engine(hass, config, discovery_info=None):
 class NoTTSProvider(Provider):
     """The No TTS API provider."""
 
-    def __init__(self, hass, beep):
+    def __init__(self, hass, lang):
         """Initialize No TTS provider."""
         self._hass = hass
-        self._beep = beep
+        self._lang = lang
         self.name = "No TTS"
 
     @property
     def default_language(self):
         """Return the default beep option as language."""
-        return self._beep
+        return DEFAULT_LANG
 
     @property
     def supported_languages(self):
         """Return list of supported beep options as languages."""
-        return SUPPORT_BEEP_OPS
+        return SUPPORTED_LANGUAGES
 
     async def async_get_tts_audio(self, message, language, options=None):
         """Load No TTS beep or no beep wav."""
