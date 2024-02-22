@@ -1,1 +1,1 @@
-"""Support for pico integration."""
+"""No tts integration."""
