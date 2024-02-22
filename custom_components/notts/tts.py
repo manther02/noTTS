@@ -6,7 +6,6 @@ import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.tts import CONF_LANG, PLATFORM_SCHEMA, Provider
-from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from urllib.parse import quote
 
@@ -19,14 +18,14 @@ DEFAULT_BEEP = "1"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
-        vol.Optional(CONF_BEEP, default=DEFAULT_BEEP): vol.In(SUPPORT_BEEP_OPS),
+        vol.Optional(CONF_LANG, default=DEFAULT_BEEP): vol.In(SUPPORT_BEEP_OPS),
     }
 )
 
 
 def get_engine(hass, config, discovery_info=None):
     """Set up Pico speech component."""
-    return NoTTSProvider(hass, config[CONF_BEEP])
+    return NoTTSProvider(hass, config[CONF_LANG])
 
 
 class NoTTSProvider(Provider):
