@@ -13,11 +13,12 @@ _LOGGER = logging.getLogger(__name__)
 SUPPORTED_LANGUAGES = ["pt", "en", "es", "fr"]
 
 DEFAULT_LANG = "en"
+DEFAULT_BEEP = "en"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_LANG, default=DEFAULT_LANG): vol.In(SUPPORTED_LANGUAGES),
-        vol.Optional(CONF_BEEP, default="1"): cv.string,
+        vol.Optional(CONF_BEEP, default=DEFAULT_BEEP): cv.string
     }
 )
 
