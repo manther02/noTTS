@@ -1,6 +1,7 @@
 """No TTS service."""
 import logging
 
+from scipy.io import wavfile
 import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
@@ -47,13 +48,11 @@ class NoTTSProvider(Provider):
     async def async_get_tts_audio(self, message, language, options=None):
         """Load No TTS beep or no beep wav."""
 
-        """Check beep activation""
+        """Check beep activation"""
         if language == "1":
             samplerate, data = wavfile.read('./nobeep.wav')
         else:
             samplerate, data = wavfile.read('./beep.wav')
-        """
-        data = ""
         
         if data:
             return ("wav", data)
