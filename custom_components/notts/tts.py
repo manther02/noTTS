@@ -54,8 +54,9 @@ class NoTTSProvider(Provider):
     async def async_get_tts_audio(self, message, language, options=None):
         """Load No TTS beep or no beep wav."""
 
-        """Check beep activation"""
+        """Check beep activation"" Temporarily disabled
         if self._beep == "1":
             data = base64.b64decode(BEEP)
+        """
             
         return (None, None)
