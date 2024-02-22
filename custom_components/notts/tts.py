@@ -6,14 +6,16 @@ import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.tts import CONF_LANG, PLATFORM_SCHEMA, Provider
-from homeassistant.const import CONF_BEEP
+import homeassistant.helpers.config_validation as cv
+
+CONF_BEEP = "beep"
 
 _LOGGER = logging.getLogger(__name__)
 
 SUPPORTED_LANGUAGES = ["pt", "en", "es", "fr"]
 
 DEFAULT_LANG = "en"
-DEFAULT_BEEP = "en"
+DEFAULT_BEEP = "1"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
