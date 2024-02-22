@@ -3,7 +3,7 @@
   "name": "No TTS",
   "version": "1.0.0",
   "documentation": "https://github.com/manther02/noTTS/blob/master/README.md",
-  "requirements": [],
+  "requirements": ["scipy"],
   "dependencies": [],
   "codeowners": ["@manther02"]
 }
