@@ -15,7 +15,7 @@ _LOGGER = logging.getLogger(__name__)
 SUPPORTED_LANGUAGES = ["pt", "en", "es", "fr"]
 
 DEFAULT_LANG = "en"
-DEFAULT_BEEP = "1"
+DEFAULT_BEEP = "0"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -58,9 +58,5 @@ class NoTTSProvider(Provider):
         """Check beep activation"""
         if self._beep == "1":
             data = base64.b64decode(BEEP)
-        else:
-            data = base64.b64decode(NOBEEP)
-        
-        if data:
-            return ("wav", data)
+            
         return (None, None)
