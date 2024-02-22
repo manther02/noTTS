@@ -18,6 +18,8 @@ To use it, copy the `notts` folder inside your `config/custom_components` folder
 
 Add following config to your yaml if you are using the Supervisor Addon
 
+ATENTION: The beep is temporarily disabled.
+
 ```yaml
 tts:
   - platform: notts
