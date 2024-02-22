@@ -1,9 +1,9 @@
 {
-  "domain": "picotts_remote",
-  "name": "Picotts (Remote)",
-  "version": "1.0.1",
-  "documentation": "https://github.com/Poeschl/Remote-PicoTTS/blob/master/README.md",
+  "domain": "notts",
+  "name": "No TTS",
+  "version": "1.0.0",
+  "documentation": "https://github.com/manther02/noTTS/blob/master/README.md",
   "requirements": [],
   "dependencies": [],
-  "codeowners": ["@Poeschl"]
+  "codeowners": ["@manther02"]
 }
