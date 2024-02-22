@@ -21,5 +21,5 @@ Add following config to your yaml if you are using the Supervisor Addon
 ```yaml
 tts:
   - platform: notts
-    beep: "1" or "0"
+    language: "1" to beep or "0" for no beep
 ```
